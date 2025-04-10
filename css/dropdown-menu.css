@@ -1,0 +1,48 @@
+[data-dropdown] { /* Seleciona elementos com o atributo data-dropdown */
+    position: relative; /* Define a posição como relativa */
+  }
+  
+  [data-dropdown] .dropdown-menu { /* Seleciona elementos com a classe dropdown-menu dentro de elementos com o atributo data-dropdown */
+    display: none; /* Define a exibição como none (oculto) */
+  }
+  
+  [data-dropdown]:hover .dropdown-menu, /* Seleciona dropdown-menu quando o elemento pai é hover */
+  [data-dropdown].active .dropdown-menu { /* Seleciona dropdown-menu quando o elemento pai tem a classe active */
+    display: block; /* Define a exibição como block (visível) */
+    animation: show-up .3s forwards; /* Aplica a animação show-up com duração de 0.3s */
+  }
+  
+  @keyframes show-up { /* Define a animação show-up */
+    from { /* Estado inicial da animação */
+      opacity: 0; /* Define a opacidade como 0 */
+      transform: translate3d(0,30px,0); /* Move o elemento 30px para baixo */
+    }
+    to { /* Estado final da animação */
+      opacity: 1; /* Define a opacidade como 1 */
+      transform: translate3d(0,0,0); /* Move o elemento para a posição original */
+    }
+  }
+  
+  .dropdown-menu { /* Seleciona elementos com a classe dropdown-menu */
+    position: absolute; /* Define a posição como absoluta */
+    top: 38px; /* Define a distância do topo como 38px */
+    background: #E54; /* Define a cor de fundo como #E54 */
+    border: 2px solid #333; /* Define uma borda de 2px sólida com a cor #333 */
+    z-index: 200; /* Define o z-index como 200 */
+  }
+  
+  .dropdown-menu::before { /* Seleciona o pseudo-elemento before de dropdown-menu */
+    content: ''; /* Define o conteúdo como vazio */
+    display: block; /* Define a exibição como block */
+    position: absolute; /* Define a posição como absoluta */
+    top: -10px; /* Define a distância do topo como -10px */
+    width: 0px; /* Define a largura como 0px */
+    height: 0px; /* Define a altura como 0px */
+    border-left: 10px solid transparent; /* Define uma borda esquerda de 10px sólida e transparente */
+    border-right: 10px solid transparent; /* Define uma borda direita de 10px sólida e transparente */
+    border-bottom: 10px solid #E54; /* Define uma borda inferior de 10px sólida com a cor #E54 */
+  }
+  
+  .dropdown-menu li a:hover { /* Seleciona links dentro de li dentro de dropdown-menu quando em hover */
+    color: white; /* Define a cor do texto como branco */
+  }

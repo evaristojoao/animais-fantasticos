@@ -1,0 +1,15 @@
+.tooltip {
+    position: absolute; /* Posiciona a tooltip de forma absoluta */
+    z-index: 500; /* Define a ordem de empilhamento da tooltip */
+    background: rgba(0,0,0,.6); /* Define a cor de fundo com transparência */
+    box-shadow: 0 0 0 2px #FB5, 0 0 0 6px rgba(0,0,0,.6); /* Adiciona efeitos de sombra */
+    padding: .5rem; /* Adiciona preenchimento dentro da tooltip */
+    color: white; /* Define a cor do texto para branco */
+    font-family: 'IBM Plex Mono', monospace; /* Define a família de fontes */
+    font-weight: bold; /* Define o peso da fonte como negrito */
+    font-size: .875rem; /* Define o tamanho da fonte */
+    max-width: 170px; /* Define a largura máxima da tooltip */
+    border-radius: 2px; /* Arredonda os cantos da tooltip */
+    top: 0px; /* Posiciona a tooltip a partir do topo */
+    left: 0px; /* Posiciona a tooltip a partir da esquerda */
+  }

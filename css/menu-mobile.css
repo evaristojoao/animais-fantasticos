@@ -1,0 +1,58 @@
+[data-menu="button"] { /* Estilo para o botão do menu */
+  display: none; /* Inicialmente escondido */
+}
+
+@media (max-width: 700px) { /* Estilos para telas menores que 700px */
+  .js [data-menu="button"] { /* Estilo para o botão do menu em telas pequenas */
+    display: flex; /* Exibe como flex */
+    background: #222; /* Fundo preto */
+    border: none; /* Sem borda */
+    padding: .5rem 1rem; /* Padding interno */
+    border-radius: 4px; /* Bordas arredondadas */
+    text-transform: uppercase; /* Texto em maiúsculas */
+    font-family: 'IBM Plex Mono', monospace; /* Fonte específica */
+    font-weight: bold; /* Texto em negrito */
+    color: #fff; /* Texto branco */
+    cursor: pointer; /* Cursor de ponteiro */
+    margin: 10px; /* Margem ao redor */
+    align-items: center; /* Alinha itens ao centro */
+    position: relative; /* Posição relativa */
+    z-index: 300; /* Z-index alto para sobrepor outros elementos */
+  }
+  
+  .js [data-menu="button"]::before { /* Estilo para pseudo-elemento antes do botão */
+    margin-right: 4px; /* Margem à direita */
+    content: ''; /* Conteúdo vazio */
+    display: inline-block; /* Exibe como inline-block */
+    height: 2px; /* Altura de 2px */
+    width: 12px; /* Largura de 12px */
+    background: #fff; /* Fundo branco */
+    box-shadow: 0 4px #fff, 0 -4px #fff; /* Sombra para criar linhas adicionais */
+    transition: transform .3s; /* Transição suave para transformação */
+  }
+
+  .js [data-menu="button"].active::before { /* Estilo para pseudo-elemento antes do botão ativo */
+    transform: rotate(90deg); /* Rotaciona 90 graus */
+  }
+
+  .js [data-menu="list"] { /* Estilo para a lista do menu em telas pequenas */
+    display: none; /* Inicialmente escondida */
+    position: absolute; /* Posição absoluta */
+    background: #FB5; /* Fundo laranja */
+    width: 160px; /* Largura de 160px */
+    z-index: 200; /* Z-index alto para sobrepor outros elementos */
+    top: 0; /* Alinhado ao topo */
+    padding: 60px 0 20px 0; /* Padding interno */
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,.2); /* Sombra ao redor */
+  }
+
+  .js [data-menu="list"].active { /* Estilo para a lista do menu ativa */
+    display: block; /* Exibe como bloco */
+    animation: show-right .3s forwards; /* Animação de exibição */
+  }
+
+  .js .dropdown-menu { /* Estilo para o menu dropdown */
+    position: static; /* Posição estática */
+    border: none; /* Sem borda */
+  }
+}

@@ -1,0 +1,29 @@
+/* Define o estilo para o elemento com a classe `numeros-grid` */
+.numeros-grid {
+    grid-column: 2 / 4; /* Define que o elemento ocupa da coluna 2 à coluna 4 */
+    display: grid; /* Define o display como grid */
+    grid-template-columns: 1fr 1fr; /* Define duas colunas de tamanho igual */
+    grid-gap: 30px; /* Define um espaçamento de 30px entre os itens do grid */
+}
+  
+/* Define estilos para telas com largura máxima de 700px */
+@media (max-width: 700px) {
+    .numeros-grid {
+      grid-column: 1; /* Define que o elemento ocupa apenas a coluna 1 */
+    }
+}
+  
+/* Define o estilo para os elementos h3 dentro do elemento com a classe `numeros-grid` */
+.numeros-grid h3 {
+    font-family: 'Playfair Display SC'; /* Define a família de fontes */
+    font-size: 2rem; /* Define o tamanho da fonte como 2rem */
+    margin-bottom: .5rem; /* Define a margem inferior como 0.5rem */
+}
+  
+/* Define o estilo para os elementos span dentro do elemento com a classe `numeros-grid` */
+.numeros-grid span {
+    font-family: 'IBM Plex Mono', monospace; /* Define a família de fontes */
+    font-weight: bold; /* Define o peso da fonte como bold */
+    font-size: 1.5rem; /* Define o tamanho da fonte como 1.5rem */
+    color: #E54; /* Define a cor do texto */
+}
