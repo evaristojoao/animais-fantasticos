@@ -1,28 +1,34 @@
-// Scroll suave ao clicar em links internos.
-export default function initScrollSuave() {
-    // Seleciona todos os links (<a>) dentro de um elemento com a classe js-menu cujo atributo href inicia com "#". Esses links apontam para âncoras internas da página.
-    const linksInternos = document.querySelectorAll('[data-menu="suave"] a[href^="#"]');
+export default class ScrollSuave {
+    constructor(links,options) {
+        this.linksInternos = document.querySelectorAll(links);
+        if (options === undefined) {
+            this.options = { behavior: 'smooth',block: 'start' };
+        } else {
+            this.options = options;
+        }
 
-    function scrollToSection(event) {
-        event.preventDefault(); // Impede o comportamento padrão do link, que seria pular imediatamente para a seção destino.
-        const href = event.currentTarget.getAttribute('href'); // Obtém o valor do atributo href do link clicado, que indica qual seção deve ser rolada para a visualização.
-        const section = document.querySelector(href); // Seleciona a seção da página que corresponde ao href obtido.
-
-        // Usa o método scrollIntoView para rolar até a seção selecionada de forma suave.
-        section.scrollIntoView({ // 
-            behavior: 'smooth',
-            block: 'start',
-        });
-
-        // forma alternativa
-        // const topo = section.offsetTop;
-        // window.scrollTo({
-        //   top: topo,
-        //   behavior: 'smooth',
-        // });
+        this.scrollToSection = this.scrollToSection.bind(this);
     }
 
-    linksInternos.forEach((link) => {
-        link.addEventListener('click',scrollToSection);
-    });
+    scrollToSection(event) {
+        event.preventDefault();
+        const href = event.currentTarget.getAttribute('href');
+        const section = document.querySelector(href);
+        section.scrollIntoView(this.options);
+    }
+
+    addLinkEvent() {
+        this.linksInternos.forEach((link) => {
+            link.addEventListener('click', (event) => { 
+                this.scrollToSection(event);
+             });
+        });
+    }
+
+    init() {
+        if (this.linksInternos.length) {
+            this.addLinkEvent();
+        }
+        return this;
+    }
 }
