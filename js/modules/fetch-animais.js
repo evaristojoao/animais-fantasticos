@@ -1,27 +1,44 @@
-import initAnimaNumeros from './anima-numeros.js'; // Importa a função `initAnimaNumeros` do módulo `anima-numeros.js`
+import AnimaNumeros from './anima-numeros.js';
 
-export default function initFetchAnimais() {
-  async function fetchAnimais(url) { // Função assíncrona que busca os animais a partir de uma URL
+export default function fetchAnimais(url, target) {
+  // Cria a div contendo informações
+  // com o total de animais
+  function createAnimal(animal) {
+    const div = document.createElement('div');
+    div.classList.add('numero-animal');
+    div.innerHTML = `<h3>${animal.specie}</h3><span data-numero>${animal.total}</span>`;
+    return div;
+  }
+
+  // Preenche cada animal no DOM
+  const numerosGrid = document.querySelector(target);
+  function preencherAnimais(animal) {
+    const divAnimal = createAnimal(animal);
+    numerosGrid.appendChild(divAnimal);
+  }
+
+  // Anima os números de cada animal
+  function animaAnimaisNumeros() {
+    const animaNumeros = new AnimaNumeros('[data-numero]', '.numeros', 'ativo');
+    animaNumeros.init();
+  }
+
+  // Puxa os animais através de um arquivo json
+  // e cria cada animal utilizando createAnimal
+  async function criarAnimais() {
     try {
-      const animaisResponse = await fetch(url); // Faz uma requisição à URL e espera pela resposta
-      const animaisJSON = await animaisResponse.json(); // Converte a resposta para JSON
-      const numerosGrid = document.querySelector('.numeros-grid'); // Seleciona o elemento com a classe `numeros-grid`
-      animaisJSON.forEach(animal => { // Para cada animal no JSON
-        const divAnimal = createAnimal(animal); // Cria um elemento `div` para o animal
-        numerosGrid.appendChild(divAnimal); // Adiciona o elemento `div` ao `numerosGrid`
-      });
-      initAnimaNumeros(); // Inicializa a animação dos números
-    } catch(erro) { // Se ocorrer um erro
-      console.log(erro); // Exibe o erro no console
+      // Fetch, espera a resposta e transforma em json
+      const animaisResponse = await fetch(url);
+      const animaisJSON = await animaisResponse.json();
+
+      // Após a transformação de json, ativa as funções
+      // para preencher e animar os números
+      animaisJSON.forEach(animal => preencherAnimais(animal));
+      animaAnimaisNumeros();
+    } catch (erro) {
+      console.log(erro);
     }
   }
-  
-  function createAnimal(animal) { // Função que cria um elemento `div` para o animal
-    const div = document.createElement('div'); // Cria um elemento `div`
-    div.classList.add('numero-animal'); // Adiciona a classe `numero-animal` ao `div`
-    div.innerHTML = `<h3>${animal.specie}</h3><span data-numero>${animal.total}</span>`; // Define o conteúdo HTML do `div`
-    return div; // Retorna o `div`
-  }
-  
-  fetchAnimais('./animaisapi.json'); // Chama a função `fetchAnimais` com a URL da API de animais
+
+  return criarAnimais();
 }
