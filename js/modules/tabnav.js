@@ -1,24 +1,33 @@
-export default function initTabNav() { // Inicializa a navegação por abas
-    const tabMenu = document.querySelectorAll('[data-tab="menu"] li');
-    const tabContent = document.querySelectorAll('[data-tab="content"] section');
+export default class TabNav {
+    constructor(menu,content) {
+        this.tabMenu = document.querySelectorAll(menu);
+        this.tabContent = document.querySelectorAll(content);
+        this.activeClass = 'ativo';
+    }
 
-    if (tabMenu.length && tabContent.length) { // Verifica se existem elementos para serem manipulados
-        tabContent[0].classList.add('ativo'); // Adiciona a classe ativo à primeira seção de conteúdo, tornando-a visível (ativa) por padrão.
-
-        // Percorre todas as seções de conteúdo e remove a classe ativo, garantindo que nenhuma delas esteja ativa antes de ativar a desejada.
-        function activeTab(index) { 
-            tabContent.forEach((section) => {
-                section.classList.remove('ativo');
-            });
-            const direcao = tabContent[index].dataset.anime;
-            tabContent[index].classList.add('ativo', direcao); // Adiciona a classe ativo à seção de conteúdo com o índice correspondente ao botão clicado.
-        }
-
-        // Itera sobre cada item do menu de abas, utilizando o índice para associar cada botão à sua respectiva seção.
-        tabMenu.forEach((itemMenu, index) => { 
-            itemMenu.addEventListener('click',() => {
-                activeTab(index);
-            });
+    // Ativa a tab de acordo com o index da mesma 
+    activeTab(index) {
+        this.tabContent.forEach((section) => {
+            section.classList.remove(this.activeClass);
         });
+        const direcao = this.tabContent[index].dataset.anime;
+        this.tabContent[index].classList.add(this.activeClass,direcao);
+
+    }
+
+    // Adiciona os eventos nas tabs
+    addTabNavEvent() {
+        this.tabMenu.forEach((itemMenu,index) => {
+            itemMenu.addEventListener('click',() => this.activeTab(index));
+        });
+    }
+
+    init() {
+        if (this.tabMenu.length && this.tabContent.length) {
+            // Ativar primeiro item
+            this.activeTab(0);
+            this.addTabNavEvent();
+        }
+        return this;
     }
 }
