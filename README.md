@@ -48,7 +48,6 @@ Or use [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwick
 
 - 📦 [JSONPlaceholder](https://jsonplaceholder.typicode.com/) – Fake posts
 - 🦸‍♂️ [Chuck Norris Jokes](https://api.chucknorris.io/jokes/random)
-- 🧾 [ViaCEP](https://viacep.com.br/) – Brazilian zip code info
 
 ---
 
