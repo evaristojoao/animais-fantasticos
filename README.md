@@ -1,5 +1,5 @@
 
-# 🚀 Animais Fantasticos Project 
+# 🚀 Animais Fantásticos Project 
 - Modular Frontend Project in JavaScript
 
 <p align="center">
