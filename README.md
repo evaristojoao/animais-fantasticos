@@ -73,4 +73,4 @@ Yes, it’s fully responsive using:
 
 ## 📄 License
 
-Origamid course Final Project - [JavaScript Completo ES6](LICENSE).
+Origamid course Final Project - [JavaScript Completo ES6](https://www.origamid.com/curso/javascript-completo-es6/).
