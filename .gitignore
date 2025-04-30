@@ -1,5 +1,4 @@
-# Ignorar pasta com código comentado
-js/
+exercises/
 
 # Ignorar script de limpeza
 clean.js
