@@ -1,0 +1,12 @@
+# Ignorar pasta com código comentado
+js/
+
+# Ignorar script de limpeza
+clean.js
+
+# Ignorar dependências do Node
+node_modules/
+
+# Ignorar arquivos do sistema
+.DS_Store
+Thumbs.db
