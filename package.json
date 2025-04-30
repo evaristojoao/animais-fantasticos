@@ -4,7 +4,6 @@
     "build": "webpack --mode production --entry ./js/script.js -o ./"
   },
   "devDependencies": {
-    "strip-comments": "^2.0.1",
     "webpack": "^5.99.5",
     "webpack-cli": "^6.0.1"
   },
