@@ -1,8 +1,5 @@
 exercises/
 
-# Ignorar script de limpeza
-clean.js
-
 # Ignorar dependências do Node
 node_modules/
 
