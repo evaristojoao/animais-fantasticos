@@ -1,82 +1,83 @@
-.modal-container { /* Container for the modal */
-    height: 100vh; /* Full viewport height */
-    width: 100%; /* Full viewport width */
-    background: rgba(0,0,0,.5); /* Semi-transparent black background */
-    position: fixed; /* Fixed position */
-    top: 0; /* Align to top */
-    left: 0; /* Align to left */
-    z-index: 2000; /* High z-index to overlay other elements */
-    display: none; /* Initially hidden */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+.modal-container {
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container.ativo {
+  display: flex;
+}
+
+.modal {
+  background: white;
+  width: 80vw;
+  max-width: 600px;
+  padding: 40px;
+  border: 10px solid #FB5;
+  box-shadow: 0 0 0 10px white;
+  position: relative;
+  box-sizing: border-box;
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
   }
-  
-  .modal-container.ativo { /* Active state of the modal container */
-    display: flex; /* Display as flexbox */
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
-  
-  .modal { /* Modal box */
-    background: white; /* White background */
-    min-width: 300px; /* Minimum width */
-    padding: 40px; /* Padding inside the modal */
-    border: 10px solid #FB5; /* Border with color */
-    box-shadow: 0 0 0 10px white; /* Shadow effect */
-    position: relative; /* Relative positioning */
-  }
-  
-  @keyframes modal { /* Keyframes for modal animation */
-    from { /* Initial state */
-      opacity: 0; /* Fully transparent */
-      transform: translate3d(0, -30px, 0); /* Move up by 30px */
-    }
-    to { /* Final state */
-      opacity: 1; /* Fully opaque */
-      transform: translate3d(0, 0, 0); /* No movement */
-    }
-  }
-  
-  .ativo .modal { /* Active state of the modal */
-    animation: modal .3s forwards; /* Apply animation */
-  }
-  
-  .fechar { /* Close button */
-    width: 50px; /* Width of the button */
-    height: 50px; /* Height of the button */
-    border-radius: 50%; /* Circular shape */
-    border: 4px solid white; /* White border */
-    top: -30px; /* Position above the modal */
-    right: -30px; /* Position to the right of the modal */
-    position: absolute; /* Absolute positioning */
-    background: #E54; /* Background color */
-    box-shadow: 0 4px 4px 0 rgba(0,0,0,.3); /* Shadow effect */
-    font-size: 1.2rem; /* Font size */
-    color: white; /* Font color */
-    font-family: 'IBM Plex Mono', monospace; /* Font family */
-    cursor: pointer; /* Pointer cursor on hover */
-  }
-  
-  .modal label { /* Label inside the modal */
-    font-family: 'IBM Plex Mono', monospace; /* Font family */
-    display: block; /* Display as block */
-    font-weight: bold; /* Bold font */
-    margin: 1rem 0 .5rem 0; /* Margin around the label */
-  }
-  
-  .modal input { /* Input field inside the modal */
-    width: 100%; /* Full width */
-    padding: .7rem .5rem; /* Padding inside the input */
-    box-sizing: border-box; /* Include padding in width calculation */
-  }
-  
-  .modal button[type="submit"] { /* Submit button inside the modal */
-    display: block; /* Display as block */
-    background: #E54; /* Background color */
-    border: none; /* No border */
-    border-radius: 4px; /* Rounded corners */
-    padding: .7rem 2rem; /* Padding inside the button */
-    font-size: 1rem; /* Font size */
-    color: white; /* Font color */
-    font-family: 'IBM Plex Mono', monospace; /* Font family */
-    margin-top: 1rem; /* Margin on top */
-    font-weight: bold; /* Bold font */
-  }
+}
+
+.ativo .modal {
+  animation: modal .3s forwards;
+}
+
+.fechar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 4px solid white;
+  top: -30px;
+  right: -30px;
+  position: absolute;
+  background: #E54 url('../img/fechar.svg') no-repeat center center;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,.3);
+  cursor: pointer;
+}
+
+.modal label {
+  font-family: 'IBM Plex Mono', monospace;
+  display: block;
+  font-weight: bold;
+  margin: 1rem 0 .5rem 0;
+}
+
+.modal input {
+  width: 100%;
+  padding: .7rem .5rem;
+  box-sizing: border-box;
+  border: 2px solid #222;
+  border-radius: 0px;
+}
+
+.modal button[type="submit"] {
+  display: block;
+  background: #E54;
+  border: none;
+  border-radius: 4px;
+  padding: .7rem 2rem;
+  font-size: 1rem;
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+  margin-top: 1rem;
+  font-weight: bold;
+}
