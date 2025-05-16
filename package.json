@@ -8,7 +8,8 @@
     "webpack-cli": "^6.0.1"
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "printWidth": 120
   },
   "name": "animais-fantasticos",
   "version": "1.0.0",
