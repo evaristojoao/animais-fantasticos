@@ -40,5 +40,6 @@ funcionamento.init();
 fetchAnimais('./animaisapi.json', '.numeros-grid');
 
 const slide = new SlideNav('.slide', '.slide-wrapper');
+
 slide.init();
 slide.addControl('.custom-controls');
